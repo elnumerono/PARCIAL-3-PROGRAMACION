@@ -1,5 +1,15 @@
 package elbuencomer;
 
+import elbuencomer.model.Cliente;
+import elbuencomer.model.ModalidadEntrega;
+import elbuencomer.model.Pedido;
+import elbuencomer.model.RapidoExpress;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+import static org.junit.Assert.*;
+
 public class RapidoExpressTest {
     private final RapidoExpress rapido = new RapidoExpress();
 

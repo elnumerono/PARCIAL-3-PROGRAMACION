@@ -1,5 +1,13 @@
 package elbuencomer;
 
+import elbuencomer.model.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+import static org.junit.Assert.*;
+
 public class ClienteTest {
     private Cliente cliente;
     private Producto plato;

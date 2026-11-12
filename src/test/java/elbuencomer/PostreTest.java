@@ -1,5 +1,10 @@
 package elbuencomer;
 
+import elbuencomer.model.Postre;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.*;
+
 public class PostreTest {
     private Postre crear(double peso, double temp, boolean refrigeracion) {
         return new Postre("D01", "Natas", "Tradicional", 10000.0, 15, peso, temp, refrigeracion);

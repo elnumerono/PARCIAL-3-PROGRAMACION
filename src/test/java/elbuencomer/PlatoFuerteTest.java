@@ -1,5 +1,11 @@
 package elbuencomer;
 
+import elbuencomer.model.PlatoFuerte;
+import elbuencomer.model.TipoPreparacion;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.*;
+
 public class PlatoFuerteTest {
     private PlatoFuerte crear(double peso, int tiempo, boolean coccion) {
         return new PlatoFuerte("P01", "Bandeja paisa", "TÃpica", 30000.0, tiempo, peso, TipoPreparacion.FRITO, coccion);

@@ -1,5 +1,11 @@
 package elbuencomer;
 
+import elbuencomer.model.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
 public class DetallePedidoTest {
     private final Producto plato = new PlatoFuerte("P01", "Bandeja", "TÃpica", 30000.0, 20, 500, TipoPreparacion.FRITO, true);
     private final Producto bebida = new Bebida("B01", "Limonada", "Natural", 8000.0, 5, 400, 5, true, TemperaturaBebida.FRIO);

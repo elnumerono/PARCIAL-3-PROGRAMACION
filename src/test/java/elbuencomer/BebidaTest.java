@@ -1,5 +1,11 @@
 package elbuencomer;
 
+import elbuencomer.model.Bebida;
+import elbuencomer.model.TemperaturaBebida;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class BebidaTest {
     private Bebida crear(double volumen, double temperatura, boolean especial, TemperaturaBebida tipo) {
         return new Bebida("B01", "Limonada", "Natural", 8000.0, 5, volumen, temperatura, especial, tipo);
