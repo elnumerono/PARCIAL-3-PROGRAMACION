@@ -11,8 +11,7 @@ public class Cliente {
     private String direccion;
     private List<Pedido> listClientePedidos;
 
-    public Cliente(String documento, String nombreCompleto, String telefono,
-                   String correo, String direccion) {
+    public Cliente(String documento, String nombreCompleto, String telefono, String correo, String direccion) {
         this.documento = documento;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;

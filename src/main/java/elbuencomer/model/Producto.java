@@ -9,8 +9,7 @@ public abstract class Producto {
 
     private Pedido theProductoPedido;
 
-    public Producto(String codigo, String nombre, String descripcion,
-                    Double precioBase, int tiempoPreparacionMin) {
+    public Producto(String codigo, String nombre, String descripcion, Double precioBase, int tiempoPreparacionMin) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;

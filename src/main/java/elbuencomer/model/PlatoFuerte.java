@@ -6,10 +6,7 @@ public class PlatoFuerte extends Producto {
     private TipoPreparacion tipoPreparacion;
     private boolean coccionAprobada;
 
-    public PlatoFuerte(String codigo, String nombre, String descripcion,
-                       Double precioBase, int tiempoPreparacionMin,
-                       double pesoGramos, TipoPreparacion tipoPreparacion,
-                       boolean coccionAprobada) {
+    public PlatoFuerte(String codigo, String nombre, String descripcion, Double precioBase, int tiempoPreparacionMin, double pesoGramos, TipoPreparacion tipoPreparacion, boolean coccionAprobada) {
         super(codigo, nombre, descripcion, precioBase, tiempoPreparacionMin);
         this.pesoGramos = pesoGramos;
         this.tipoPreparacion = tipoPreparacion;
