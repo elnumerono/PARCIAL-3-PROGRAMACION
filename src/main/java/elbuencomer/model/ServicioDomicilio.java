@@ -1,5 +1,7 @@
 package elbuencomer.model;
 
+import java.util.List;
+
 public interface ServicioDomicilio {
     /**
      * Indica si la empresa acepta un recorrido de la distancia dada.
