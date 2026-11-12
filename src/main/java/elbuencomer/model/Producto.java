@@ -78,6 +78,10 @@ public abstract class Producto {
         this.theProductoPedido = theProductoPedido;
     }
 
+    /**
+     * Metodo toString
+      * @return toString
+     */
     @Override
     public String toString() {
         return "Producto{" +

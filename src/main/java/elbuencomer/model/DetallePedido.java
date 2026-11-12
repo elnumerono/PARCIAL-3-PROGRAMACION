@@ -1,6 +1,10 @@
 package elbuencomer.model;
 
 public record DetallePedido(int cantidad) {
+    /**
+     * Metodo de detalle de pedido
+     * @param cantidad de pedido
+     */
     public DetallePedido {
         if (cantidad <= 0) {
             throw new IllegalArgumentException("La cantidad debe ser mayor que cero.");
@@ -8,7 +12,9 @@ public record DetallePedido(int cantidad) {
     }
 
     /**
-     * Subtotal del detalle: precio de venta del producto por la cantidad.
+     * Metodo para calcular subtotal
+     * @param producto seleccionado
+     * @return subtotal
      */
     public double calcularSubtotal(Producto producto) {
         if (producto == null) {
@@ -18,7 +24,9 @@ public record DetallePedido(int cantidad) {
     }
 
     /**
-     * Como el record es inmutable, sumar unidades devuelve un nuevo detalle.
+     * Detalle pedido nuevo
+     * @param cantidadAdicional a adicionar
+     * @return Nuevo detalle pedido
      */
     public DetallePedido sumarCantidad(int cantidadAdicional) {
         return new DetallePedido(cantidad + cantidadAdicional);

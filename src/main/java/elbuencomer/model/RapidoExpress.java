@@ -15,11 +15,21 @@ public class RapidoExpress implements ServicioDomicilio {
         this.listServicioPedidos = new ArrayList<>();
     }
 
+    /**
+     * Verificar si acepta el recorrido
+      * @param distanciaKm a recorrer
+     * @return verificacion
+     */
     @Override
     public boolean aceptaRecorrido(double distanciaKm) {
         return distanciaKm > 0 && distanciaKm <= DISTANCIA_MAXIMA;
     }
 
+    /**
+     * Calcular costo domicilio
+      * @param distanciaKm a recorrer
+     * @return costo
+     */
     @Override
     public double calcularCostoDomicilio(double distanciaKm) {
         if (!aceptaRecorrido(distanciaKm)) {
@@ -37,6 +47,10 @@ public class RapidoExpress implements ServicioDomicilio {
         this.listServicioPedidos = listServicioPedidos;
     }
 
+    /**
+     * Metodo toString
+      * @return toString
+     */
     @Override
     public String toString() {
         return "RapidoExpress{" +

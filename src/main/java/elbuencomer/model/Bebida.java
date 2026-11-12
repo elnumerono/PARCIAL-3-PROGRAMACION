@@ -16,9 +16,10 @@ public class Bebida extends Producto {
         this.preparacionEspecial = preparacionEspecial;
         this.temperaturaBebida = temperaturaBebida;
     }
+
     /**
-     * Las bebidas tienen un incremento del 10 % sobre el precio base y,
-     * si requieren preparación especial, un recargo fijo de $3.000.
+     * Metodo para calcular el precio de venta
+     * @return precio
      */
     @Override
     public double calcularPrecioVenta() {
@@ -32,8 +33,8 @@ public class Bebida extends Producto {
     }
 
     /**
-     * Volumen entre 150 y 1.500 ml y temperatura de servicio entre 0 °C y 10 °C
-     * si la bebida es fría, o entre 55 °C y 85 °C si es caliente.
+     * Verificacion de si cumple calidad
+     * @return verificacion
      */
     @Override
     public boolean cumpleCalidad() {
@@ -81,6 +82,10 @@ public class Bebida extends Producto {
         this.temperaturaBebida = temperaturaBebida;
     }
 
+    /**
+     * Metodo toString
+      * @return toString
+     */
     @java.lang.Override
     public java.lang.String toString() {
         return "Bebida{" +

@@ -20,8 +20,10 @@ public class Cliente {
         this.direccion = direccion;
         this.listClientePedidos = new ArrayList<>();
     }
+
     /**
-     * Agrega un pedido confirmado al historial del cliente, evitando códigos duplicados.
+     * Metodo de agregar pedido
+     * @param pedido ha agregar
      */
     public void agregarPedido(Pedido pedido) {
         if (pedido == null) {
@@ -34,9 +36,9 @@ public class Cliente {
     }
 
     /**
-     * Busca un pedido del historial del cliente por su código.
-     *
-     * @return el pedido o null si no existe.
+     * Metodo para buscar pedido
+     * @param codigo del pedido
+     * @return pedido o null
      */
     public Pedido buscarPedido(String codigo) {
         for (Pedido pedido : listClientePedidos) {
@@ -48,7 +50,8 @@ public class Cliente {
     }
 
     /**
-     * Total comprado por el cliente (sin contar pedidos cancelados).
+     * Metodo para calcular el total de compras
+     * @return total
      */
     public double calcularTotalCompras() {
         double total = 0;
@@ -108,6 +111,10 @@ public class Cliente {
         this.documento = documento;
     }
 
+    /**
+     * Metodo toString
+     * @return toString
+     */
     @Override
     public String toString() {
         return "Cliente{" +

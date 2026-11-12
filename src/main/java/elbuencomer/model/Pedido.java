@@ -30,10 +30,11 @@ public class Pedido {
         this.listPedidoProductos = new ArrayList<>();
         this.listPedidoDetalles = new ArrayList<>();
     }
+
     /**
-     * Agrega un producto con su cantidad al pedido: el producto va a listPedidoProductos
-     * y su cantidad a listPedidoDetalles, en la misma posición. Si el producto ya estaba,
-     * se suma la cantidad. Solo se permite mientras el pedido está pendiente.
+     * Metodo de agregar producto a pedido
+     * @param producto seleccionado
+     * @param cantidad que desea añadir
      */
     public void agregarProducto(Producto producto, int cantidad) {
         if (estado != EstadoPedido.PENDIENTE) {
@@ -53,7 +54,9 @@ public class Pedido {
     }
 
     /**
-     * Posición del producto en listPedidoProductos, o -1 si no está en el pedido.
+     * Buscar producto
+     * @param codigoProducto del producto
+     * @return
      */
     public int buscarIndiceProducto(String codigoProducto) {
         for (int i = 0; i < listPedidoProductos.size(); i++) {
@@ -65,7 +68,9 @@ public class Pedido {
     }
 
     /**
-     * Cantidad solicitada de un producto en este pedido (0 si no está).
+     * Cantidad solicitada de un producto
+     * @param producto a verificar
+     * @return cantidad
      */
     public int obtenerCantidad(Producto producto) {
         int indice = buscarIndiceProducto(producto.getCodigo());
@@ -73,14 +78,17 @@ public class Pedido {
     }
 
     /**
-     * Subtotal de la línea i del pedido: precio de venta del producto × cantidad.
+     * Subtotal de pedido
+     * @param indice de pedido
+     * @return subtotal
      */
     public double calcularSubtotal(int indice) {
         return listPedidoDetalles.get(indice).calcularSubtotal(listPedidoProductos.get(indice));
     }
 
     /**
-     * Valor de los productos: suma de (precio de venta × cantidad) de cada línea.
+     * Calcular el valor de los prodcutos
+     * @return total
      */
     public double calcularValorProductos() {
         double total = 0;
@@ -91,7 +99,8 @@ public class Pedido {
     }
 
     /**
-     * Valor total del pedido: valor de los productos más el costo del domicilio cuando corresponda.
+     * Valor total del pedido
+     * @return total
      */
     public double calcularValorTotal() {
         double total = calcularValorProductos();
@@ -102,7 +111,8 @@ public class Pedido {
     }
 
     /**
-     * Verifica que todos los productos del pedido cumplan las condiciones de calidad.
+     * Verificar calidad de productos
+     * @return verificacion
      */
     public boolean productosCumplenCalidad() {
         for (Producto producto : listPedidoProductos) {
@@ -113,12 +123,17 @@ public class Pedido {
         return true;
     }
 
+    /**
+     * Definir modalidad del domicilio
+      * @return modalidad
+     */
     public boolean esDomicilio() {
         return modalidad == ModalidadEntrega.DOMICILIO;
     }
 
     /**
-     * Un pedido genera ingresos si está confirmado o entregado (los cancelados no cuentan).
+     * Definir ingresos
+     * @return estado
      */
     public boolean generaIngresos() {
         return estado == EstadoPedido.CONFIRMADO || estado == EstadoPedido.ENTREGADO;
@@ -239,6 +254,10 @@ public class Pedido {
         this.listPedidoDetalles = listPedidoDetalles;
     }
 
+    /**
+     * toString
+     * @return toString
+     */
     @java.lang.Override
     public java.lang.String toString() {
         return "Pedido{" +

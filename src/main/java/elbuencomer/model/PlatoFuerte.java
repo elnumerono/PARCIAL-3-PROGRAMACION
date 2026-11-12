@@ -17,7 +17,8 @@ public class PlatoFuerte extends Producto {
     }
 
     /**
-     * Los platos fuertes tienen un incremento del 20 % sobre el precio base.
+     * calcular el precio de venta
+     * @return precio
      */
     @Override
     public double calcularPrecioVenta() {
@@ -26,8 +27,8 @@ public class PlatoFuerte extends Producto {
     }
 
     /**
-     * Peso entre 200 y 900 g, tiempo de preparación entre 10 y 60 min
-     * y cocción aprobada.
+     * verificar si cumple calidad
+     * @return verificacion
      */
     @Override
     public boolean cumpleCalidad() {
@@ -60,6 +61,10 @@ public class PlatoFuerte extends Producto {
         this.coccionAprobada = coccionAprobada;
     }
 
+    /**
+     * metodo toString
+     * @return toString
+     */
     @Override
     public String toString() {
         return "PlatoFuerte{" +

@@ -22,11 +22,21 @@ public class EntregaSegura implements ServicioDomicilio {
         this.listServicioPedidos = new ArrayList<>();
     }
 
+    /**
+     * Metodo para ver si acepta el recorrido
+      * @param distanciaKm a recorrer
+     * @return verificacion
+     */
     @Override
     public boolean aceptaRecorrido(double distanciaKm) {
         return distanciaKm > 0 && distanciaKm <= DISTANCIA_MAXIMA;
     }
 
+    /**
+     * Metodo para calcular el costo del domicilio
+      * @param distanciaKm a recorrer
+     * @return costo
+     */
     @Override
     public double calcularCostoDomicilio(double distanciaKm) {
         if (!aceptaRecorrido(distanciaKm)) {
@@ -48,6 +58,10 @@ public class EntregaSegura implements ServicioDomicilio {
         this.listServicioPedidos = listServicioPedidos;
     }
 
+    /**
+     * Metodo toString
+      * @return toString
+     */
     @Override
     public String toString() {
         return "EntregaSegura{}";

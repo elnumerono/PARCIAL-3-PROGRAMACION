@@ -29,6 +29,10 @@ public class Restaurante {
     // 1. Registrar productos
     // =====================================================================
 
+    /**
+     * Metodo para registrar un producto
+      * @param producto a registrar
+     */
     public void registrarProducto(Producto producto) {
         if (producto == null) {
             throw new IllegalArgumentException("El producto no puede ser nulo.");
@@ -42,6 +46,11 @@ public class Restaurante {
         listRestauranteProductos.add(producto);
     }
 
+    /**
+     * Metodo para buscar un producto
+      * @param codigo del producto
+     * @return producto
+     */
     public Producto buscarProducto(String codigo) {
         for (Producto producto : listRestauranteProductos) {
             if (producto.getCodigo().equalsIgnoreCase(codigo)) {
@@ -55,6 +64,10 @@ public class Restaurante {
     // 2. Registrar clientes
     // =====================================================================
 
+    /**
+     * Metodo para registrar un cliente
+      * @param cliente a registrar
+     */
     public void registrarCliente(Cliente cliente) {
         if (cliente == null) {
             throw new IllegalArgumentException("El cliente no puede ser nulo.");
@@ -68,6 +81,11 @@ public class Restaurante {
         listRestauranteClientes.add(cliente);
     }
 
+    /**
+     * Metodo para buscar un cliente
+      * @param documento del cliente
+     * @return cliente
+     */
     public Cliente buscarCliente(String documento) {
         for (Cliente cliente : listRestauranteClientes) {
             if (cliente.getDocumento().equals(documento)) {
@@ -81,6 +99,10 @@ public class Restaurante {
     // Empresas de domicilio
     // =====================================================================
 
+    /**
+     * Metodo para registrar el servicio a domicilio
+      * @param servicio registrado
+     */
     public void registrarServicioDomicilio(ServicioDomicilio servicio) {
         if (servicio == null) {
             throw new IllegalArgumentException("La empresa de domicilio no puede ser nula.");
@@ -172,6 +194,11 @@ public class Restaurante {
         }
     }
 
+    /**
+     * Metodo para buscar un Pedido
+      * @param codigo del pedido
+     * @return
+     */
     public Pedido buscarPedido(String codigo) {
         for (Pedido pedido : listRestaurantePedidos) {
             if (pedido.getCodigo().equalsIgnoreCase(codigo)) {
@@ -185,6 +212,11 @@ public class Restaurante {
     // 4. Calcular el valor total de un pedido
     // =====================================================================
 
+    /**
+     * Metodo para calcular valor total del pedido
+      * @param codigo del pedido
+     * @return total
+     */
     public double calcularValorTotalPedido(String codigo) {
         Pedido pedido = buscarPedido(codigo);
         if (pedido == null) {
@@ -197,6 +229,11 @@ public class Restaurante {
     // 5. Historial de pedidos de un cliente
     // =====================================================================
 
+    /**
+     * Metodo para consultar el historial de un cliente
+      * @param documento del cliente
+     * @return historial
+     */
     public List<Pedido> consultarHistorialCliente(String documento) {
         Cliente cliente = buscarCliente(documento);
         if (cliente == null) {
@@ -209,6 +246,10 @@ public class Restaurante {
     // Estado de los pedidos
     // =====================================================================
 
+    /**
+     * Metodo para que un pedido se marque como entregado
+      * @param codigo del pedido
+     */
     public void marcarPedidoEntregado(String codigo) {
         Pedido pedido = buscarPedido(codigo);
         if (pedido == null) {
@@ -217,6 +258,10 @@ public class Restaurante {
         pedido.marcarEntregado();
     }
 
+    /**
+     * Metodo para cancelar un pedido
+      * @param codigo del pedido
+     */
     public void cancelarPedido(String codigo) {
         Pedido pedido = buscarPedido(codigo);
         if (pedido == null) {
@@ -230,7 +275,8 @@ public class Restaurante {
     // =====================================================================
 
     /**
-     * Productos del menú que cumplen las condiciones de calidad (pueden venderse).
+     * metodo para consultar productos disponibles
+     * @return disponibles
      */
     public List<Producto> consultarProductosDisponibles() {
         List<Producto> disponibles = new ArrayList<>();
@@ -243,7 +289,8 @@ public class Restaurante {
     }
 
     /**
-     * Productos del menú que NO cumplen las condiciones de calidad.
+     * Productos que no cumplen con la condicion de calidad
+     * @return productos que no cumplen
      */
     public List<Producto> consultarProductosNoCumplenCalidad() {
         List<Producto> noCumplen = new ArrayList<>();
@@ -258,6 +305,7 @@ public class Restaurante {
     /**
      * Ingresos propios del restaurante: valor de los productos de los pedidos
      * confirmados o entregados (sin domicilios y sin pedidos cancelados).
+     * @return total
      */
     public double calcularIngresosVentas() {
         double total = 0;
@@ -271,6 +319,7 @@ public class Restaurante {
 
     /**
      * Valores correspondientes a domicilios, diferenciados de los ingresos del restaurante.
+     * @return total
      */
     public double calcularIngresosDomicilios() {
         double total = 0;
@@ -400,6 +449,10 @@ public class Restaurante {
         this.listRestauranteDomicilios = listRestauranteDomicilios;
     }
 
+    /**
+     * Metodo toString
+      * @return toString
+     */
     @Override
     public String toString() {
         return "Restaurante{" +

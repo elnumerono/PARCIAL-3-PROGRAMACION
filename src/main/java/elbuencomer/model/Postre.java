@@ -17,8 +17,8 @@ public class Postre extends Producto {
     }
 
     /**
-     * Los postres tienen un incremento del 15 % sobre el precio base y,
-     * si son refrigerados, un incremento adicional del 5 % sobre el precio base.
+     * Calcular precio de venta
+     * @return precio
      */
     @Override
     public double calcularPrecioVenta() {
@@ -32,8 +32,8 @@ public class Postre extends Producto {
     }
 
     /**
-     * Peso entre 80 y 500 g; temperatura entre 0 y 6 °C si requiere refrigeración,
-     * o entre 15 y 30 °C si no la requiere.
+     * Verificacion de calidad
+     * @return verificacion
      */
     @Override
     public boolean cumpleCalidad() {
@@ -71,6 +71,10 @@ public class Postre extends Producto {
         this.temperaturaAlmacenamiento = temperaturaAlmacenamiento;
     }
 
+    /**
+     * metodo toString
+      * @return toString
+     */
     @Override
     public String toString() {
         return "Postre{" +
