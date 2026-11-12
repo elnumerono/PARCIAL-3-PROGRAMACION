@@ -1,6 +1,7 @@
 package elbuencomer;
 
 import elbuencomer.model.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -70,7 +71,7 @@ class RestauranteTest {
 
         Pedido p2 = new Pedido("PED2", LocalDate.now(), cliente, ModalidadEntrega.DOMICILIO);
         p2.agregarProducto(plato, 1);
-        assertFalse(restaurante.solicitarServicioDomicilio(p2, rapido, 15)); // supera 12 km
+        Assertions.assertFalse(restaurante.solicitarServicioDomicilio(p2, rapido, 15)); // supera 12 km
         assertThrows(IllegalArgumentException.class, () -> restaurante.confirmarPedido(p2));
     }
 
@@ -90,9 +91,9 @@ class RestauranteTest {
         restaurante.confirmarPedido(p3);
         restaurante.cancelarPedido("PED3");
 
-        assertEquals(116000, restaurante.calcularIngresosVentas(), 0.001);
-        assertEquals(8000, restaurante.calcularIngresosDomicilios(), 0.001);
-        assertSame(bebida, restaurante.obtenerProductoMasVendido());
-        assertEquals("Platos fuertes", restaurante.obtenerCategoriaMayoresIngresos());
+        Assertions.assertEquals(116000, restaurante.calcularIngresosVentas(), 0.001);
+        Assertions.assertEquals(8000, restaurante.calcularIngresosDomicilios(), 0.001);
+        Assertions.assertSame(bebida, restaurante.obtenerProductoMasVendido());
+        Assertions.assertEquals("Platos fuertes", restaurante.obtenerCategoriaMayoresIngresos());
     }
 }
