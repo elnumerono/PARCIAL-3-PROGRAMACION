@@ -1,4 +1,4 @@
 package elbuencomer.model;
 
-public class Bebida {
+public class Bebida extends Producto {
 }
