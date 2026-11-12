@@ -18,6 +18,17 @@ public abstract class Producto {
         this.tiempoPreparacionMin = tiempoPreparacionMin;
         this.theProductoPedido = null;
     }
+    /**
+     * Calcula el precio de venta del producto según su categoría
+     * y sus características particulares.
+     */
+    public abstract double calcularPrecioVenta();
+
+    /**
+     * Verifica si el producto cumple las condiciones de calidad
+     * exigidas para incluirse en un pedido confirmado.
+     */
+    public abstract boolean cumpleCalidad();
 
     public String getCodigo() {
         return codigo;
