@@ -20,6 +20,45 @@ public class Cliente {
         this.direccion = direccion;
         this.listClientePedidos = new ArrayList<>();
     }
+    /**
+     * Agrega un pedido confirmado al historial del cliente, evitando códigos duplicados.
+     */
+    public void agregarPedido(Pedido pedido) {
+        if (pedido == null) {
+            throw new IllegalArgumentException("El pedido no puede ser nulo.");
+        }
+        if (buscarPedido(pedido.getCodigo()) != null) {
+            throw new IllegalArgumentException("El cliente ya tiene un pedido con código " + pedido.getCodigo() + ".");
+        }
+        listClientePedidos.add(pedido);
+    }
+
+    /**
+     * Busca un pedido del historial del cliente por su código.
+     *
+     * @return el pedido o null si no existe.
+     */
+    public Pedido buscarPedido(String codigo) {
+        for (Pedido pedido : listClientePedidos) {
+            if (pedido.getCodigo().equalsIgnoreCase(codigo)) {
+                return pedido;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Total comprado por el cliente (sin contar pedidos cancelados).
+     */
+    public double calcularTotalCompras() {
+        double total = 0;
+        for (Pedido pedido : listClientePedidos) {
+            if (pedido.getEstado() != EstadoPedido.CANCELADO) {
+                total += pedido.calcularValorTotal();
+            }
+        }
+        return total;
+    }
 
     public String getDireccion() {
         return direccion;
